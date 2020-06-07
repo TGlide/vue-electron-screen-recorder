@@ -7,7 +7,11 @@
         </h1>
 
         <div class="video-container">
-          <video ref="videoSource"></video>
+          <video ref="videoSource" v-if="selectedVideo !== undefined"></video>
+          <div id="no-video" v-else>
+            <b-icon icon="video-slash" />
+            <p>No video selected.</p>
+          </div>
         </div>
 
         <div class="record-buttons">
@@ -32,7 +36,7 @@
         <hr />
 
         <div id="video-sources">
-          <b-dropdown aria-role="list">
+          <b-dropdown aria-role="list" :disabled="recording">
             <button
               class="button is-text"
               slot="trigger"
@@ -40,7 +44,6 @@
             >
               <span v-if="selectedVideo === undefined">Select a source</span>
               <span v-else>{{ selectedVideo.name }}</span>
-              <!-- <b-icon :icon="active ? 'chevron-up' : 'chevron-down'"></b-icon> -->
             </button>
 
             <b-dropdown-item
@@ -163,6 +166,31 @@ export default {
   padding: 0.5rem;
   border: 0.25rem rgba($black, 0.75) dashed;
   border-radius: 1rem;
+}
+
+#no-video {
+  height: 50vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .icon {
+    $size: 5rem;
+    width: $size !important;
+    height: $size !important;
+
+    /deep/ svg {
+      font-size: $size !important;
+      width: 100% !important;
+      height: 100% !important;
+    }
+  }
+
+  p {
+    font-size: 1.5rem;
+  }
 }
 
 .record-buttons {
