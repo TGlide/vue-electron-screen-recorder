@@ -1,24 +1,5 @@
-# electron-recorder
+# Vue + Electron Screen Recorder
 
-## Project setup
-```
-yarn install
-```
+Screen recorder built with Vue and Electron.
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
-
-### Compiles and minifies for production
-```
-yarn build
-```
-
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+Based on [Fireship's tutorial](https://www.youtube.com/watch?v=3yqDxhR2XxE).
